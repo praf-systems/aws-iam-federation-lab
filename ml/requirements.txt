@@ -1,0 +1,8 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+jupyter
+ipykernel
+boto3
+python-dotenv
