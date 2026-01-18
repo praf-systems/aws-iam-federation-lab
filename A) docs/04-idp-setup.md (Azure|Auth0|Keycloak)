@@ -1,0 +1,14 @@
+# IdP Setup
+
+## IdP choice and rationale
+- Why this IdP (stability, free tier, enterprise realism)
+
+## App registration / client config
+- Client ID:
+- Redirect URIs:
+- Claims / attributes:
+- Groups / roles mapping:
+
+## Federation output
+- SAML metadata / OIDC discovery URL:
+- Token/Assertion fields of interest:
