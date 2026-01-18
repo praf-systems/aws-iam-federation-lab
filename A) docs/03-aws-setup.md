@@ -21,8 +21,8 @@
 Created an AWS Organization with multiple accounts for isolation and governance.
 
 ### Accounts:
-- `prof-identity` – Identity and access-related services
-- `prof-sandbox` – Hands-on labs and experiments
+- `praf-identity` – Identity and access-related services
+- `praf-sandbox` – Hands-on labs and experiments
 - `Praf_AWS` – Primary/management account
 
 ### Permissions:
