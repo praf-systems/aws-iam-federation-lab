@@ -1,19 +1,14 @@
-# Architecture
+## Sequence (SAML to AWS Console)
 
-## Actors
-- User (browser)
-- IdP (e.g., Azure AD / Auth0 / Keycloak)
-- AWS IAM (SAML/OIDC federation)
-- AWS Console and/or STS
+```mermaid
+sequenceDiagram
+  participant U as User
+  participant A as Microsoft Entra ID
+  participant S as AWS IAM Identity Center
+  participant C as AWS Console
 
-## High-level flow
-1. User authenticates with IdP
-2. IdP issues assertion/token
-3. AWS IAM validates via configured provider
-4. AWS STS returns AWS role credentials
-5. User lands in AWS Console (or uses API creds)
-
-## Notes
-- Prefer least privilege roles
-- Prefer short session durations where possible
-- Treat metadata and claims mapping as configuration-as-documentation
+  U->>A: Login (myapps.microsoft.com)
+  A->>S: SAML Assertion
+  S->>S: Evaluate group -> permission set
+  S->>C: Redirect w/ federated session
+  C-->>U: Console access
