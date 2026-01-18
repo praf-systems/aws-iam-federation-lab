@@ -1,14 +1,30 @@
-# IdP Setup
+# AWS IAM Identity Center Setup
 
-## IdP choice and rationale
-- Why this IdP (stability, free tier, enterprise realism)
+## 1. Identity Center Configuration
+- Enabled AWS IAM Identity Center
+- Identity source set to: External Identity Provider (SAML 2.0)
 
-## App registration / client config
-- Client ID:
-- Redirect URIs:
-- Claims / attributes:
-- Groups / roles mapping:
+---
 
-## Federation output
-- SAML metadata / OIDC discovery URL:
-- Token/Assertion fields of interest:
+## 2. Permission Sets
+Created permission sets for access control:
+- AdministratorAccess
+- (Future) ReadOnly, PowerUser, Custom roles
+
+---
+
+## 3. Groups in IAM Identity Center
+Created the following groups:
+- `praf-admins`
+- `praf-labs`
+- `prof-readonly`
+
+---
+
+## 4. Users
+Created users aligned to access roles:
+- `praf-admin`
+- `praf-lab`
+- `praf-readonly-user`
+
+Users were later mapped to external identity provider users.
