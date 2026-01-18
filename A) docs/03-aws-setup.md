@@ -1,19 +1,30 @@
-# AWS Setup
+# AWS Account & Organization Setup
 
-## 1. Create IAM roles for federation
-- Role name:
-- Trusted entity:
-- Conditions:
-- Session duration:
+## 1. AWS Free Tier Account
+- Created an AWS Free Tier account using the root user
+- Configured:
+  - Account Alias: <placeholder>
+  - Account Number: <placeholder>
 
-## 2. Create/Configure IAM Identity Provider
-- Provider type: (SAML / OIDC)
-- Provider name:
-- Metadata URL/file:
-- Thumbprints (if OIDC):
-- Audience/client IDs:
+> Root account used only for initial setup and break-glass access.
 
-## 3. Map IdP attributes to AWS
-- Role mapping approach:
-- Groups/claims mapping:
-- Example attributes:
+---
+
+## 2. IAM Hardening
+- Created a dedicated IAM user to manage AWS resources
+- Enabled MFA using authenticator app (Authy)
+- Avoided use of root credentials after initial setup
+
+---
+
+## 3. AWS Organizations
+Created an AWS Organization with multiple accounts for isolation and governance.
+
+### Accounts:
+- `prof-identity` – Identity and access-related services
+- `prof-sandbox` – Hands-on labs and experiments
+- `Praf_AWS` – Primary/management account
+
+### Permissions:
+- Assigned `AdministratorAccess` permission set across accounts
+- Centralized management via AWS IAM Identity Center
