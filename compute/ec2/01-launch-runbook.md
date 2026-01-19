@@ -25,3 +25,20 @@ Rationale: baseline Linux, minimal surface area, cost controlled.
 - Purpose: baseline patch + install CW agent + create bootstrap marker
 - File: compute/ec2/03-user-data.sh
 - Verification: /var/log/rf-bootstrap.log
+
+## Result
+- Instance ID: i-xxxxxxxx
+- Launch time: <timestamp>
+
+
+## Security Groups
+
+### rf-sg-ec2-ssm
+- Inbound: none
+- Outbound: allow all (temporary)
+- Purpose: EC2 instances accessed only via SSM
+
+### rf-sg-vpce-ssm
+- Inbound: HTTPS 443 from rf-sg-ec2-ssm
+- Outbound: allow all
+- Purpose: Restrict SSM endpoint access to known EC2 SG

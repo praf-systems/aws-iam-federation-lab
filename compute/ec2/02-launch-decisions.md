@@ -27,3 +27,15 @@
 Note:
 - VPC, Security Groups, EC2, and VPC Endpoints are region-scoped
 - All SSM-related infrastructure is created in ap-south-1
+
+## Access Strategy (SSM-first)
+
+- Instance will run in private subnet
+- No public IP assigned
+- No inbound SSH
+- Access via AWS Systems Manager Session Manager
+
+Rationale:
+- Eliminates exposed management ports
+- Aligns with enterprise zero-trust patterns
+- Avoids NAT Gateway cost by using VPC Interface Endpoints
